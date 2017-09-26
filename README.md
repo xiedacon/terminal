@@ -8,6 +8,9 @@ A super lightweight, beautiful, and simple terminal. Comes with sane defaults, b
 
 ![Terminal Screenshot](data/screenshot.png?raw=true)
 
+## Snapcraft Known Issues
+* Does not respect system `monospace-font-name`, have to `gsettings set org.gnome.desktop.interface monospace-font-name 'Roboto Mono 10'`
+
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
