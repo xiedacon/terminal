@@ -15,7 +15,7 @@ then
             --type=method_call \
             --session \
             --dest=@EXEC_NAME@ \
-            /io/elementary/terminal \
+            @URI_ROOT@ \
             @EXEC_NAME@.ProcessFinished \
             string:$PANTHEON_TERMINAL_ID \
             string:"$(fc -ln -1)"
@@ -38,7 +38,7 @@ then
         --type=method_call \
         --session \
         --dest=@EXEC_NAME@ \
-        /io/elementary/terminal \
+        @URI_ROOT@ \
         @EXEC_NAME@.ProcessFinished \
         string:$PANTHEON_TERMINAL_ID \
         string:"You should not have seen this, please report the incident to Pantheon Terminal developers."
