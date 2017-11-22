@@ -85,14 +85,14 @@ OPTIONS
 )
 
 include (GSettings)
-add_schema ("data/io.elementary.terminal.gschema.xml")
+add_schema ("data/${CMAKE_PROJECT_NAME}.gschema.xml")
 
 #link_libraries (m)
 add_subdirectory (po)
 
 
 include (GResource)
-glib_compile_resources (GLIB_RESOURCES_CSS SOURCE data/io.elementary.terminal.gresource.xml)
+glib_compile_resources (GLIB_RESOURCES_CSS SOURCE data/${CMAKE_PROJECT_NAME}.gresource.xml)
 
 add_executable (${EXEC_NAME} ${VALA_C} ${GLIB_RESOURCES_CSS})
 find_library (M_LIB m)
@@ -101,11 +101,11 @@ target_link_libraries (${EXEC_NAME} ${M_LIB})
 include (Translations)
 configure_file_translation(${CMAKE_SOURCE_DIR}/data/open-pantheon-terminal-here.desktop.in ${CMAKE_BINARY_DIR}/data/open-pantheon-terminal-here.desktop ${CMAKE_SOURCE_DIR}/po/)
 configure_file_translation(${CMAKE_SOURCE_DIR}/data/org.pantheon.terminal.desktop.in ${CMAKE_BINARY_DIR}/data/org.pantheon.terminal.desktop ${CMAKE_SOURCE_DIR}/po/)
-configure_file_translation(${CMAKE_SOURCE_DIR}/data/io.elementary.terminal.appdata.xml.in ${CMAKE_BINARY_DIR}/data/io.elementary.terminal.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
+configure_file_translation(${CMAKE_SOURCE_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml.in ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml ${CMAKE_SOURCE_DIR}/po/)
 
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
 install (FILES ${CMAKE_BINARY_DIR}/data/org.pantheon.terminal.desktop DESTINATION share/applications)
-install (FILES ${CMAKE_BINARY_DIR}/data/io.elementary.terminal.appdata.xml DESTINATION share/metainfo)
+install (FILES ${CMAKE_BINARY_DIR}/data/${CMAKE_PROJECT_NAME}.appdata.xml DESTINATION share/metainfo)
 install (FILES ${CMAKE_BINARY_DIR}/data/open-pantheon-terminal-here.desktop DESTINATION share/applications)
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/enable-zsh-completion-notifications DESTINATION ${PKGDATADIR})
 install (FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/enable-fish-completion-notifications DESTINATION ${PKGDATADIR})
