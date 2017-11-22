@@ -204,7 +204,7 @@ namespace PantheonTerminal {
             this.drag_data_received.connect (drag_received);
             this.clickable (regex_strings);
 
-            GLib.Settings saved_state = new GLib.Settings ("io.elementary.terminal.saved-state");
+            GLib.Settings saved_state = new GLib.Settings (Build.URI_ROOT + ".saved-state");
             saved_state.bind ("zoom", this, "zoom_factor", GLib.SettingsBindFlags.DEFAULT);
 
             realize.connect (() => {

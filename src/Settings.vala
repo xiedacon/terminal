@@ -46,7 +46,7 @@ namespace PantheonTerminal {
         public double zoom { get; set; }
 
         public SavedState () {
-            base ("io.elementary.terminal.saved-state");
+            base (Build.URI_ROOT + ".saved-state");
         }
     }
 
@@ -75,7 +75,7 @@ namespace PantheonTerminal {
         public Granite.Widgets.DynamicNotebook.TabBarBehavior tab_bar_behavior { get; set; }
 
         public Settings () {
-            base ("io.elementary.terminal.settings");
+            base (Build.URI_ROOT + ".settings");
         }
     }
 }
