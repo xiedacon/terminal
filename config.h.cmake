@@ -6,6 +6,7 @@
 #cmakedefine PKGDATADIR "@PKGDATADIR@"
 #cmakedefine GETTEXT_PACKAGE "@GETTEXT_PACKAGE@"
 #cmakedefine RELEASE_NAME "@RELEASE_NAME@"
+#cmakedefine URI_ROOT "@URI_ROOT@"
 #cmakedefine VERSION "@VERSION@"
 #cmakedefine VERSION_INFO "@VERSION_INFO@"
 #cmakedefine PLUGINDIR "@PLUGINDIR@"

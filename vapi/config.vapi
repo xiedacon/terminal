@@ -5,6 +5,7 @@ namespace Build {
         public const string EXEC_NAME;
 	public const string GETTEXT_PACKAGE;
 	public const string RELEASE_NAME;
+        public const string URI_ROOT;
 	public const string VERSION;
 	public const string VERSION_INFO;
 	public const string PLUGINDIR;
