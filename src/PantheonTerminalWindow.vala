@@ -127,12 +127,12 @@ namespace PantheonTerminal {
         }
 
         static construct {
-            action_accelerators[ACTION_CLOSE_TAB] = "<Control><Shift>w";
+            action_accelerators[ACTION_CLOSE_TAB] = "<Control>w";
             action_accelerators[ACTION_FULLSCREEN] = "F11";
-            action_accelerators[ACTION_NEW_TAB] = "<Control><Shift>t";
+            action_accelerators[ACTION_NEW_TAB] = "<Control>n";
             action_accelerators[ACTION_NEW_WINDOW] = "<Control><Shift>n";
-            action_accelerators[ACTION_NEXT_TAB] = "<Control><Shift>Right";
-            action_accelerators[ACTION_PREVIOUS_TAB] = "<Control><Shift>Left";
+            action_accelerators[ACTION_NEXT_TAB] = "<Alt>Right";
+            action_accelerators[ACTION_PREVIOUS_TAB] = "<Alt>Left";
             action_accelerators[ACTION_ZOOM_DEFAULT_FONT] = "<Control>0";
             action_accelerators[ACTION_ZOOM_DEFAULT_FONT] = "<Control>KP_0";
             action_accelerators[ACTION_ZOOM_IN_FONT] = "<Control>plus";
@@ -1113,10 +1113,10 @@ namespace PantheonTerminal {
 
         const Gtk.ActionEntry[] main_entries = {
             { "Copy", null, N_("Copy"), "<Control><Shift>c", null, action_copy },
-            { "Search", null, N_("Find…"), "<Control><Shift>f", null, action_search },
+            { "Search", null, N_("Find…"), "<Control>f", null, action_search },
             { "Paste", null, N_("Paste"), "<Control><Shift>v", null, action_paste },
             { "Select All", null, N_("Select All"), "<Control><Shift>a", null, action_select_all },
-            { "Show in File Browser", null, N_("Show in File Browser"), "<Control><Shift>e", null, action_open_in_files }
+            { "Show in File Browser", null, N_("Show in File Browser"), "<Control>e", null, action_open_in_files }
         };
     }
 }
