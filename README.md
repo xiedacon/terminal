@@ -11,30 +11,24 @@ A super lightweight, beautiful, and simple terminal. Comes with sane defaults, b
 ## Building, Testing, and Installation
 
 You'll need the following dependencies:
-* cmake
-* intltool
 * libgranite-dev
 * libvte-2.91-dev
+* meson
 * valac
 
-It's recommended to create a clean build environment
+Run `meson` to configure the build environment and then `ninja test` to build and run tests
 
-    mkdir build
-    cd build/
+    meson build --prefix=/usr
+    ninja test
 
-Run `cmake` to configure the build environment and then `make` to build
+To install, use `ninja install`, then execute with `io.elementary.terminal`
 
-    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-    make
-
-To install, use `make install`, then execute with `io.elementary.terminal`
-
-    sudo make install
+    sudo ninja install
     io.elementary.terminal
 
 ## Notifications
 
-Terminal implements process completion notifications. They are enabled for BASH automatically. To enable them for ZSH, add the following line to .zshrc:
+Terminal implements process completion notifications. They are enabled for BASH and FISH automatically. To enable them for ZSH, add the following line to .zshrc:
 
     builtin . /usr/share/io.elementary.terminal/enable-zsh-completion-notifications || builtin true
 

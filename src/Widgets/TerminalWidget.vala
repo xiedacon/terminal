@@ -43,7 +43,7 @@ namespace PantheonTerminal {
             set {
                 this._window = value;
                 this.app = value.app;
-                this.menu = value.ui.get_widget ("ui/AppMenu") as Gtk.Menu;
+                this.menu = value.menu;
                 this.menu.show_all ();
             }
         }
@@ -150,11 +150,11 @@ namespace PantheonTerminal {
                     uri = get_link (event);
 
                     if (uri != null) {
-                        window.main_actions.get_action ("Copy").set_sensitive (true);
+                        window.get_simple_action (PantheonTerminalWindow.ACTION_COPY).set_enabled (true);
                     }
 
                     menu.select_first (false);
-                    menu.popup (null, null, null, event.button, event.time);
+                    menu.popup_at_pointer (event);
 
                     return true;
                 } else if (event.button == Gdk.BUTTON_MIDDLE) {
@@ -181,7 +181,7 @@ namespace PantheonTerminal {
             });
 
             selection_changed.connect (() => {
-                window.main_actions.get_action ("Copy").set_sensitive (get_has_selection ());
+                window.get_simple_action (PantheonTerminalWindow.ACTION_COPY).set_enabled (get_has_selection ());
             });
 
 
@@ -282,7 +282,7 @@ namespace PantheonTerminal {
         public void kill_fg () {
             int fg_pid;
             if (this.try_get_foreground_pid (out fg_pid))
-                Posix.kill (fg_pid, Posix.SIGKILL);
+                Posix.kill (fg_pid, Posix.Signal.KILL);
         }
 
         public void term_ps () {
@@ -290,8 +290,8 @@ namespace PantheonTerminal {
 
             /* Check if the shell process is still alive by sending 0 signals */
             while (Posix.kill (this.child_pid, 0) == 0) {
-                Posix.kill (this.child_pid, Posix.SIGHUP);
-                Posix.kill (this.child_pid, Posix.SIGTERM);
+                Posix.kill (this.child_pid, Posix.Signal.HUP);
+                Posix.kill (this.child_pid, Posix.Signal.TERM);
                 Thread.usleep (100);
             }
         }
